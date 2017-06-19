@@ -1,0 +1,57 @@
+﻿@model IEnumerable<MVCDemo2.Models.Contrato>
+
+@{
+    ViewBag.Title = "ContratosdoCliente";
+}
+
+<h3>Contratos do Cliente @ViewBag.Nome</h3>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Cliente.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Dados)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Data)
+        </th>
+        <th>
+            Alarmes do Contrato
+        </th>
+
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cliente.Nome)
+        </td>
+
+
+        <td>
+            @Html.DisplayFor(modelItem => item.Dados)
+        </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.Data)
+        </td>
+        <td>
+            <a href="/alarmes/AlarmesdoContrato?Id=@Html.DisplayFor(model => item.Id) "> Ver</a>
+        </td>
+
+
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

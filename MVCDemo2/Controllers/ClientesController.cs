@@ -17,6 +17,7 @@ namespace MVCDemo2.Controllers
         // GET: Clientes
         public ActionResult Index()
         {   //Teste Git em 19/06/2017 12:24
+            //Teste from Yooga
             return View(db.Clientes.ToList());
         }
 
